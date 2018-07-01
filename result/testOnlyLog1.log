@@ -1,0 +1,4 @@
+------------STAGE 0----------
+local/data_prep.sh /media/rezki/DATA2/dataset/CHiME3
+extract 5th channel (CH5.wav, the center bottom edge in the front of the tablet) for noisy data
+Invalid line in utt2spk file: out16 out16 /home/rezki/sandbox/BeamformIt/test/out16.wav

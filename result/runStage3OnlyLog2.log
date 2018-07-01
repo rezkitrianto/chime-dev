@@ -1,0 +1,18 @@
+------------STAGE 0----------
+------------STAGE 1----------
+------------STAGE 2----------
+------------STAGE 3----------
+------------STAGE 4----------
+------------STAGE 5----------
+------------STAGE 6----------
+------------STAGE 7----------
+------------STAGE 8----------
+------------STAGE 9----------
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr/1.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/dt05_real_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr/decode_tgpr_5k_dt05_real_beamformit_5mics_it1
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr/1.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/dt05_simu_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr/decode_tgpr_5k_dt05_simu_beamformit_5mics_it1
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr/1.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/et05_simu_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr/decode_tgpr_5k_et05_simu_beamformit_5mics_it1
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr/1.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/et05_real_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr/decode_tgpr_5k_et05_real_beamformit_5mics_it1
+run.pl: 2 / 3 failed, log is in exp/tri4a_dnn_tr05_multi_noisy_smbr/decode_tgpr_5k_dt05_real_beamformit_5mics_it1/log/decode.*.log
+run.pl: 1 / 3 failed, log is in exp/tri4a_dnn_tr05_multi_noisy_smbr/decode_tgpr_5k_et05_real_beamformit_5mics_it1/log/decode.*.log
+run.pl: 2 / 3 failed, log is in exp/tri4a_dnn_tr05_multi_noisy_smbr/decode_tgpr_5k_dt05_simu_beamformit_5mics_it1/log/decode.*.log
+run.pl: 2 / 3 failed, log is in exp/tri4a_dnn_tr05_multi_noisy_smbr/decode_tgpr_5k_et05_simu_beamformit_5mics_it1/log/decode.*.log

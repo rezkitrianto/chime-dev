@@ -1,0 +1,2 @@
+local/kws/kws_score.sh data/ exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_real_beamformit_5mics_it4/kws
+FATAL: file data//kws/ecf.xml does not exist!

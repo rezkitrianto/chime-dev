@@ -1,0 +1,12 @@
+------------STAGE 0----------
+GMM Done.
+------------STAGE 1----------
+--------------------FMLLR-----------------
+steps/nnet/make_fmllr_feats.sh --nj 1 --cmd run.pl --transform-dir exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_real_beamformit_5mics data-fmllr-tri3b/onlineTest data/onlineTest exp/tri3b_tr05_multi_noisy exp/make_fmllr_tri3b/onlineTest fmllr-tri3b/onlineTest
+steps/nnet/make_fmllr_feats.sh: feature type is lda_fmllr
+utils/copy_data_dir.sh: copied data from data/onlineTest to data-fmllr-tri3b/onlineTest
+utils/validate_data_dir.sh: WARNING: you have only one speaker.  This probably a bad idea.
+   Search for the word 'bold' in http://kaldi-asr.org/doc/data_prep.html
+   for more information.
+utils/validate_data_dir.sh: Successfully validated data-directory data-fmllr-tri3b/onlineTest
+run.pl: job failed, log is in exp/make_fmllr_tri3b/onlineTest/make_fmllr_feats.1.log

@@ -1,0 +1,8 @@
+feat-to-len scp:data-fmllr-tri3b/et05_real_beamformit_5mics/feats.scp ark,t:- 
+duration : 7809.87
+Keywords generation succeeded
+transcripts-to-fsts ark:data/kws//keywords.int ark:data/kws//keywords.fsts 
+LOG (transcripts-to-fsts:main():transcripts-to-fsts.cc:113) Done 50 transcriptions
+Kws data preparation succeeded
+steps/make_index.sh --cmd run.pl --acwt 0.1 data/kws/ data/lang/ exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_real_beamformit_5mics_it4/ exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_real_beamformit_5mics_it4/kws
+Using model: exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/final.mdl

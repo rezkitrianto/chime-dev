@@ -1,0 +1,112 @@
+------------STAGE 0----------
+------------STAGE 1----------
+------------STAGE 2----------
+------------STAGE 3----------
+------------STAGE 4----------
+------------STAGE 5----------
+------------STAGE 6----------
+------------STAGE 7----------
+------------STAGE 8----------
+------------STAGE 9----------
+------------STAGE 10----------
+steps/nnet/align.sh --nj 15 --cmd run.pl data-fmllr-tri3b/tr05_multi_noisy data/lang exp/tri4a_dnn_tr05_multi_noisy_smbr exp/tri4a_dnn_tr05_multi_noisy_smbr_ali
+steps/nnet/align.sh: aligning data 'data-fmllr-tri3b/tr05_multi_noisy' using nnet/model 'exp/tri4a_dnn_tr05_multi_noisy_smbr', putting alignments in 'exp/tri4a_dnn_tr05_multi_noisy_smbr_ali'
+steps/nnet/align.sh: done aligning data.
+steps/nnet/make_denlats.sh --nj 15 --cmd run.pl --config conf/decode_dnn.config --acwt 0.1 data-fmllr-tri3b/tr05_multi_noisy data/lang exp/tri4a_dnn_tr05_multi_noisy_smbr exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats
+Making unigram grammar FST in exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/lang
+sym2int.pl: replacing *FLUCTUATE* with 64
+sym2int.pl: replacing *FLUCTUATE* with 64
+sym2int.pl: replacing *FLUCTUATE* with 64
+sym2int.pl: replacing *FLUCTUATE* with 64
+sym2int.pl: replacing *FLUCTUATE* with 64
+sym2int.pl: replacing *FLUCTUATE* with 64
+sym2int.pl: replacing *IGNORANCE* with 64
+sym2int.pl: replacing *IGNORANCE* with 64
+sym2int.pl: replacing *IGNORANCE* with 64
+sym2int.pl: replacing *IGNORANCE* with 64
+sym2int.pl: replacing *IGNORANCE* with 64
+sym2int.pl: replacing *IGNORANCE* with 64
+sym2int.pl: replacing EXISITING with 64
+sym2int.pl: replacing EXISITING with 64
+sym2int.pl: replacing EXISITING with 64
+sym2int.pl: replacing EXISITING with 64
+sym2int.pl: replacing EXISITING with 64
+sym2int.pl: replacing EXISITING with 64
+sym2int.pl: replacing *BAKER* with 64
+sym2int.pl: replacing *BAKER* with 64
+sym2int.pl: not warning for OOVs any more times
+** Replaced 1176 instances of OOVs with 64
+Compiling decoding graph in exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/dengraph
+tree-info exp/tri4a_dnn_tr05_multi_noisy_smbr/tree 
+tree-info exp/tri4a_dnn_tr05_multi_noisy_smbr/tree 
+fsttablecompose exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/lang/L_disambig.fst exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/lang/G.fst 
+fstdeterminizestar --use-log=true 
+fstpushspecial 
+fstminimizeencoded 
+fstisstochastic exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/lang/tmp/LG.fst 
+-0.0860332 -0.0862951
+[info]: LG not stochastic.
+fstcomposecontext --context-size=3 --central-position=1 --read-disambig-syms=exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/lang/phones/disambig.int --write-disambig-syms=exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/lang/tmp/disambig_ilabels_3_1.int exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/lang/tmp/ilabels_3_1 
+fstisstochastic exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/lang/tmp/CLG_3_1.fst 
+0 -0.0862951
+[info]: CLG not stochastic.
+make-h-transducer --disambig-syms-out=exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/dengraph/disambig_tid.int --transition-scale=1.0 exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/lang/tmp/ilabels_3_1 exp/tri4a_dnn_tr05_multi_noisy_smbr/tree exp/tri4a_dnn_tr05_multi_noisy_smbr/final.mdl 
+fsttablecompose exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/dengraph/Ha.fst exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/lang/tmp/CLG_3_1.fst 
+fstminimizeencoded 
+fstdeterminizestar --use-log=true 
+fstrmsymbols exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/dengraph/disambig_tid.int 
+fstrmepslocal 
+fstisstochastic exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats/dengraph/HCLGa.fst 
+0.000487626 -0.211533
+HCLGa is not stochastic
+add-self-loops --self-loop-scale=0.1 --reorder=true exp/tri4a_dnn_tr05_multi_noisy_smbr/final.mdl 
+steps/nnet/make_denlats.sh: generating denlats from data 'data-fmllr-tri3b/tr05_multi_noisy', putting lattices in 'exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats'
+steps/nnet/make_denlats.sh: done generating denominator lattices.
+------------STAGE 11----------
+steps/nnet/train_mpe.sh --cmd run.pl --num-iters 4 --acwt 0.1 --do-smbr true data-fmllr-tri3b/tr05_multi_noisy data/lang exp/tri4a_dnn_tr05_multi_noisy_smbr exp/tri4a_dnn_tr05_multi_noisy_smbr_ali exp/tri4a_dnn_tr05_multi_noisy_smbr_denlats exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats
+Pass 1 (learnrate 0.00001)
+ TRAINING FINISHED; Time taken = 142.214 min; processed 4547.36 frames per second.
+ Done 52271 files, 156 with no reference alignments, 1 with no lattices, 0 with other errors.
+ Overall average frame-accuracy is 0.95676 over 38801778 frames.
+Pass 2 (learnrate 1e-05)
+ TRAINING FINISHED; Time taken = 139.148 min; processed 4647.55 frames per second.
+ Done 52271 files, 156 with no reference alignments, 1 with no lattices, 0 with other errors.
+ Overall average frame-accuracy is 0.960064 over 38801778 frames.
+Pass 3 (learnrate 1e-05)
+ TRAINING FINISHED; Time taken = 134.981 min; processed 4791.01 frames per second.
+ Done 52271 files, 156 with no reference alignments, 1 with no lattices, 0 with other errors.
+ Overall average frame-accuracy is 0.962488 over 38801778 frames.
+Pass 4 (learnrate 1e-05)
+ TRAINING FINISHED; Time taken = 135.586 min; processed 4769.62 frames per second.
+ Done 52271 files, 156 with no reference alignments, 1 with no lattices, 0 with other errors.
+ Overall average frame-accuracy is 0.964431 over 38801778 frames.
+MPE/sMBR training finished
+Re-estimating priors by forwarding 10k utterances from training set.
+steps/nnet/make_priors.sh --cmd run.pl --nj 15 data-fmllr-tri3b/tr05_multi_noisy exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats
+Accumulating prior stats by forwarding 'data-fmllr-tri3b/tr05_multi_noisy' with 'exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats'
+Succeeded creating prior counts 'exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/prior_counts' from 'data-fmllr-tri3b/tr05_multi_noisy'
+steps/nnet/train_mpe.sh: Done. 'exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats'
+------------STAGE 12----------
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/1.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/dt05_real_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_dt05_real_beamformit_5mics_it1
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/1.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/dt05_simu_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_dt05_simu_beamformit_5mics_it1
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/1.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/et05_real_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_real_beamformit_5mics_it1
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/1.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/et05_simu_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_simu_beamformit_5mics_it1
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/2.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/dt05_real_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_dt05_real_beamformit_5mics_it2
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/2.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/dt05_simu_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_dt05_simu_beamformit_5mics_it2
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/2.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/et05_real_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_real_beamformit_5mics_it2
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/2.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/et05_simu_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_simu_beamformit_5mics_it2
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/3.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/dt05_real_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_dt05_real_beamformit_5mics_it3
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/3.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/dt05_simu_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_dt05_simu_beamformit_5mics_it3
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/3.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/et05_real_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_real_beamformit_5mics_it3
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/3.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/et05_simu_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_simu_beamformit_5mics_it3
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/4.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/dt05_real_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_dt05_real_beamformit_5mics_it4
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/4.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/dt05_simu_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_dt05_simu_beamformit_5mics_it4
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/4.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/et05_real_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_real_beamformit_5mics_it4
+steps/nnet/decode.sh --nj 3 --num-threads 4 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/4.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data-fmllr-tri3b/et05_simu_beamformit_5mics exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_simu_beamformit_5mics_it4
+------------STAGE 13----------
+cat: exp/tri4a_dnn_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics/scoring/.tra: No such file or directory
+cat: exp/tri4a_dnn_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics/scoring/.tra: No such file or directory
+cat: exp/tri4a_dnn_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics/scoring/.tra: No such file or directory
+cat: exp/tri4a_dnn_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics/scoring/.tra: No such file or directory
+grep: exp/tri4a_dnn_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics/wer_: No such file or directory
+local/chime4_calc_wers.sh: line 55: exp/tri4a_dnn_tr05_multi_noisy/decode_tgpr_5k_dt05_real_beamformit_5mics/scoring/test_filt__BUS.txt: No such file or directory

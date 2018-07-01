@@ -1,0 +1,6 @@
+------------STAGE 0----------
+GMM Done.
+------------STAGE 1----------
+------------STAGE 2----------
+steps/nnet/decode.sh --nj 1 --num-threads 1 --cmd run.pl --acwt 0.10 --config conf/decode_dnn.config exp/tri4a_dnn_tr05_multi_noisy_smbr data/onlineTest exp/tri4a_dnn_tr05_multi_noisy_smbr/decode_tgpr_5k_onlineTest
+steps/nnet/decode.sh: missing file exp/tri4a_dnn_tr05_multi_noisy_smbr/HCLG.fst

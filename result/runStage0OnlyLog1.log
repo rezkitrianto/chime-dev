@@ -1,0 +1,296 @@
+\data\
+loadtxt_ram()
+1-grams: reading 4989 entries
+done level 1
+2-grams: reading 1639687 entries
+done level 2
+3-grams: reading 2684151 entries
+done level 3
+done
+starting to use OOV words [<unk>]
+OOV code is 4989
+OOV code is 4989
+OOV code is 4989
+pruning LM with thresholds: 
+ 1e-07 1e-07
+ng: <s>	0 nextlevel_ts=1.99968 nextlevel_tbs=0.931817 k=1 ns=4206
+savetxt: /home/rezki/sandbox/kaldi/egs/chime4DevFE1_allChannels3/s5_6ch/data/local/nist_lm/lm_tgpr_5k.arpa
+save: 4989 1-grams
+save: 473820 2-grams
+save: 656493 3-grams
+done
+Data preparation succeeded
+Checked out revision 13267.
+Dictionary preparation succeeded
+utils/prepare_lang.sh data/local/dict <SPOKEN_NOISE> data/local/lang_tmp data/lang
+Checking data/local/dict/silence_phones.txt ...
+--> reading data/local/dict/silence_phones.txt
+--> data/local/dict/silence_phones.txt is OK
+
+Checking data/local/dict/optional_silence.txt ...
+--> reading data/local/dict/optional_silence.txt
+--> data/local/dict/optional_silence.txt is OK
+
+Checking data/local/dict/nonsilence_phones.txt ...
+--> reading data/local/dict/nonsilence_phones.txt
+--> data/local/dict/nonsilence_phones.txt is OK
+
+Checking disjoint: silence_phones.txt, nonsilence_phones.txt
+--> disjoint property is OK.
+
+Checking data/local/dict/lexicon.txt
+--> reading data/local/dict/lexicon.txt
+--> data/local/dict/lexicon.txt is OK
+
+Checking data/local/dict/extra_questions.txt ...
+--> reading data/local/dict/extra_questions.txt
+--> data/local/dict/extra_questions.txt is OK
+--> SUCCESS [validating dictionary directory data/local/dict]
+
+**Creating data/local/dict/lexiconp.txt from data/local/dict/lexicon.txt
+fstaddselfloops data/lang/phones/wdisambig_phones.int data/lang/phones/wdisambig_words.int 
+prepare_lang.sh: validating output directory
+utils/validate_lang.pl data/lang
+Checking data/lang/phones.txt ...
+--> data/lang/phones.txt is OK
+
+Checking words.txt: #0 ...
+--> data/lang/words.txt is OK
+
+Checking disjoint: silence.txt, nonsilence.txt, disambig.txt ...
+--> silence.txt and nonsilence.txt are disjoint
+--> silence.txt and disambig.txt are disjoint
+--> disambig.txt and nonsilence.txt are disjoint
+--> disjoint property is OK
+
+Checking sumation: silence.txt, nonsilence.txt, disambig.txt ...
+--> summation property is OK
+
+Checking data/lang/phones/context_indep.{txt, int, csl} ...
+--> 15 entry/entries in data/lang/phones/context_indep.txt
+--> data/lang/phones/context_indep.int corresponds to data/lang/phones/context_indep.txt
+--> data/lang/phones/context_indep.csl corresponds to data/lang/phones/context_indep.txt
+--> data/lang/phones/context_indep.{txt, int, csl} are OK
+
+Checking data/lang/phones/nonsilence.{txt, int, csl} ...
+--> 336 entry/entries in data/lang/phones/nonsilence.txt
+--> data/lang/phones/nonsilence.int corresponds to data/lang/phones/nonsilence.txt
+--> data/lang/phones/nonsilence.csl corresponds to data/lang/phones/nonsilence.txt
+--> data/lang/phones/nonsilence.{txt, int, csl} are OK
+
+Checking data/lang/phones/silence.{txt, int, csl} ...
+--> 15 entry/entries in data/lang/phones/silence.txt
+--> data/lang/phones/silence.int corresponds to data/lang/phones/silence.txt
+--> data/lang/phones/silence.csl corresponds to data/lang/phones/silence.txt
+--> data/lang/phones/silence.{txt, int, csl} are OK
+
+Checking data/lang/phones/optional_silence.{txt, int, csl} ...
+--> 1 entry/entries in data/lang/phones/optional_silence.txt
+--> data/lang/phones/optional_silence.int corresponds to data/lang/phones/optional_silence.txt
+--> data/lang/phones/optional_silence.csl corresponds to data/lang/phones/optional_silence.txt
+--> data/lang/phones/optional_silence.{txt, int, csl} are OK
+
+Checking data/lang/phones/disambig.{txt, int, csl} ...
+--> 15 entry/entries in data/lang/phones/disambig.txt
+--> data/lang/phones/disambig.int corresponds to data/lang/phones/disambig.txt
+--> data/lang/phones/disambig.csl corresponds to data/lang/phones/disambig.txt
+--> data/lang/phones/disambig.{txt, int, csl} are OK
+
+Checking data/lang/phones/roots.{txt, int} ...
+--> 42 entry/entries in data/lang/phones/roots.txt
+--> data/lang/phones/roots.int corresponds to data/lang/phones/roots.txt
+--> data/lang/phones/roots.{txt, int} are OK
+
+Checking data/lang/phones/sets.{txt, int} ...
+--> 42 entry/entries in data/lang/phones/sets.txt
+--> data/lang/phones/sets.int corresponds to data/lang/phones/sets.txt
+--> data/lang/phones/sets.{txt, int} are OK
+
+Checking data/lang/phones/extra_questions.{txt, int} ...
+--> 14 entry/entries in data/lang/phones/extra_questions.txt
+--> data/lang/phones/extra_questions.int corresponds to data/lang/phones/extra_questions.txt
+--> data/lang/phones/extra_questions.{txt, int} are OK
+
+Checking data/lang/phones/word_boundary.{txt, int} ...
+--> 351 entry/entries in data/lang/phones/word_boundary.txt
+--> data/lang/phones/word_boundary.int corresponds to data/lang/phones/word_boundary.txt
+--> data/lang/phones/word_boundary.{txt, int} are OK
+
+Checking optional_silence.txt ...
+--> reading data/lang/phones/optional_silence.txt
+--> data/lang/phones/optional_silence.txt is OK
+
+Checking disambiguation symbols: #0 and #1
+--> data/lang/phones/disambig.txt has "#0" and "#1"
+--> data/lang/phones/disambig.txt is OK
+
+Checking topo ...
+
+Checking word_boundary.txt: silence.txt, nonsilence.txt, disambig.txt ...
+--> data/lang/phones/word_boundary.txt doesn't include disambiguation symbols
+--> data/lang/phones/word_boundary.txt is the union of nonsilence.txt and silence.txt
+--> data/lang/phones/word_boundary.txt is OK
+
+Checking word-level disambiguation symbols...
+--> data/lang/phones/wdisambig.txt exists (newer prepare_lang.sh)
+Checking word_boundary.int and disambig.int
+--> generating a 5 word sequence
+--> resulting phone sequence from L.fst corresponds to the word sequence
+--> L.fst is OK
+--> generating a 77 word sequence
+--> resulting phone sequence from L_disambig.fst corresponds to the word sequence
+--> L_disambig.fst is OK
+
+Checking data/lang/oov.{txt, int} ...
+--> 1 entry/entries in data/lang/oov.txt
+--> data/lang/oov.int corresponds to data/lang/oov.txt
+--> data/lang/oov.{txt, int} are OK
+
+--> data/lang/L.fst is olabel sorted
+--> data/lang/L_disambig.fst is olabel sorted
+--> SUCCESS [validating lang directory data/lang]
+local/clean_chime4_format_data.sh 
+Preparing train and test data
+Preparing language models for test
+arpa2fst --disambig-symbol=#0 --read-symbol-table=data/lang_test_tgpr_5k/words.txt - data/lang_test_tgpr_5k/G.fst 
+LOG (arpa2fst:Read():arpa-file-parser.cc:90) Reading \data\ section.
+LOG (arpa2fst:Read():arpa-file-parser.cc:145) Reading \1-grams: section.
+LOG (arpa2fst:Read():arpa-file-parser.cc:145) Reading \2-grams: section.
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 9603 [-0.300961	<s> <s>	-2.68495] skipped: n-gram has invalid BOS/EOS placement
+LOG (arpa2fst:Read():arpa-file-parser.cc:145) Reading \3-grams: section.
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501806 [-0.98	<s> <s> <UNK>] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501807 [-1.6214	<s> <s> A] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501808 [-2.878	<s> <s> A.] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501809 [-5.4328	<s> <s> ABANDONED] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501810 [-2.8174	<s> <s> ABOUT] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501811 [-4.1355	<s> <s> ABOVE] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501812 [-5.0069	<s> <s> ABROAD] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501813 [-5.7099	<s> <s> ABRUPT] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501814 [-4.7059	<s> <s> ABSOLUTELY] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501815 [-5.0349	<s> <s> ACADEMIC] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501816 [-5.2568	<s> <s> ACADEMY] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501817 [-5.7099	<s> <s> ACCELERATED] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501818 [-5.5919	<s> <s> ACCEPT] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501819 [-5.1318	<s> <s> ACCEPTANCE] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501820 [-3.9883	<s> <s> ACCEPTED] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501821 [-5.0349	<s> <s> ACCEPTING] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501822 [-4.9557	<s> <s> ACCESS] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501823 [-5.7099	<s> <s> ACCIDENT] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501824 [-2.557	<s> <s> ACCORDING] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501825 [-4.5578	<s> <s> ACCOUNTANTS] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501826 [-4.6547	<s> <s> ACCOUNTING] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501827 [-5.3079	<s> <s> ACCOUNTS] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501828 [-5.4328	<s> <s> ACCUMULATED] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501829 [-5.4328	<s> <s> ACCURATE] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501830 [-5.3659	<s> <s> ACCUSED] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501831 [-5.4328	<s> <s> ACID] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501832 [-5.1696	<s> <s> ACQUIRED] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501833 [-4.8493	<s> <s> ACQUIRING] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:ConsumeNGram():arpa-lm-compiler.cc:309) line 501834 [-4.5675	<s> <s> ACQUISITION] skipped: n-gram has invalid BOS/EOS placement
+WARNING (arpa2fst:Read():arpa-file-parser.cc:231) Of 3404 parse warnings, 30 were reported. Run program with --max_warnings=-1 to see all warnings
+LOG (arpa2fst:RemoveRedundantStates():arpa-lm-compiler.cc:341) Reduced num-states from 499229 to 170449
+utils/validate_lang.pl data/lang_test_tgpr_5k
+Checking data/lang_test_tgpr_5k/phones.txt ...
+--> data/lang_test_tgpr_5k/phones.txt is OK
+
+Checking words.txt: #0 ...
+--> data/lang_test_tgpr_5k/words.txt is OK
+
+Checking disjoint: silence.txt, nonsilence.txt, disambig.txt ...
+--> silence.txt and nonsilence.txt are disjoint
+--> silence.txt and disambig.txt are disjoint
+--> disambig.txt and nonsilence.txt are disjoint
+--> disjoint property is OK
+
+Checking sumation: silence.txt, nonsilence.txt, disambig.txt ...
+--> summation property is OK
+
+Checking data/lang_test_tgpr_5k/phones/context_indep.{txt, int, csl} ...
+--> 15 entry/entries in data/lang_test_tgpr_5k/phones/context_indep.txt
+--> data/lang_test_tgpr_5k/phones/context_indep.int corresponds to data/lang_test_tgpr_5k/phones/context_indep.txt
+--> data/lang_test_tgpr_5k/phones/context_indep.csl corresponds to data/lang_test_tgpr_5k/phones/context_indep.txt
+--> data/lang_test_tgpr_5k/phones/context_indep.{txt, int, csl} are OK
+
+Checking data/lang_test_tgpr_5k/phones/nonsilence.{txt, int, csl} ...
+--> 336 entry/entries in data/lang_test_tgpr_5k/phones/nonsilence.txt
+--> data/lang_test_tgpr_5k/phones/nonsilence.int corresponds to data/lang_test_tgpr_5k/phones/nonsilence.txt
+--> data/lang_test_tgpr_5k/phones/nonsilence.csl corresponds to data/lang_test_tgpr_5k/phones/nonsilence.txt
+--> data/lang_test_tgpr_5k/phones/nonsilence.{txt, int, csl} are OK
+
+Checking data/lang_test_tgpr_5k/phones/silence.{txt, int, csl} ...
+--> 15 entry/entries in data/lang_test_tgpr_5k/phones/silence.txt
+--> data/lang_test_tgpr_5k/phones/silence.int corresponds to data/lang_test_tgpr_5k/phones/silence.txt
+--> data/lang_test_tgpr_5k/phones/silence.csl corresponds to data/lang_test_tgpr_5k/phones/silence.txt
+--> data/lang_test_tgpr_5k/phones/silence.{txt, int, csl} are OK
+
+Checking data/lang_test_tgpr_5k/phones/optional_silence.{txt, int, csl} ...
+--> 1 entry/entries in data/lang_test_tgpr_5k/phones/optional_silence.txt
+--> data/lang_test_tgpr_5k/phones/optional_silence.int corresponds to data/lang_test_tgpr_5k/phones/optional_silence.txt
+--> data/lang_test_tgpr_5k/phones/optional_silence.csl corresponds to data/lang_test_tgpr_5k/phones/optional_silence.txt
+--> data/lang_test_tgpr_5k/phones/optional_silence.{txt, int, csl} are OK
+
+Checking data/lang_test_tgpr_5k/phones/disambig.{txt, int, csl} ...
+--> 15 entry/entries in data/lang_test_tgpr_5k/phones/disambig.txt
+--> data/lang_test_tgpr_5k/phones/disambig.int corresponds to data/lang_test_tgpr_5k/phones/disambig.txt
+--> data/lang_test_tgpr_5k/phones/disambig.csl corresponds to data/lang_test_tgpr_5k/phones/disambig.txt
+--> data/lang_test_tgpr_5k/phones/disambig.{txt, int, csl} are OK
+
+Checking data/lang_test_tgpr_5k/phones/roots.{txt, int} ...
+--> 42 entry/entries in data/lang_test_tgpr_5k/phones/roots.txt
+--> data/lang_test_tgpr_5k/phones/roots.int corresponds to data/lang_test_tgpr_5k/phones/roots.txt
+--> data/lang_test_tgpr_5k/phones/roots.{txt, int} are OK
+
+Checking data/lang_test_tgpr_5k/phones/sets.{txt, int} ...
+--> 42 entry/entries in data/lang_test_tgpr_5k/phones/sets.txt
+--> data/lang_test_tgpr_5k/phones/sets.int corresponds to data/lang_test_tgpr_5k/phones/sets.txt
+--> data/lang_test_tgpr_5k/phones/sets.{txt, int} are OK
+
+Checking data/lang_test_tgpr_5k/phones/extra_questions.{txt, int} ...
+--> 14 entry/entries in data/lang_test_tgpr_5k/phones/extra_questions.txt
+--> data/lang_test_tgpr_5k/phones/extra_questions.int corresponds to data/lang_test_tgpr_5k/phones/extra_questions.txt
+--> data/lang_test_tgpr_5k/phones/extra_questions.{txt, int} are OK
+
+Checking data/lang_test_tgpr_5k/phones/word_boundary.{txt, int} ...
+--> 351 entry/entries in data/lang_test_tgpr_5k/phones/word_boundary.txt
+--> data/lang_test_tgpr_5k/phones/word_boundary.int corresponds to data/lang_test_tgpr_5k/phones/word_boundary.txt
+--> data/lang_test_tgpr_5k/phones/word_boundary.{txt, int} are OK
+
+Checking optional_silence.txt ...
+--> reading data/lang_test_tgpr_5k/phones/optional_silence.txt
+--> data/lang_test_tgpr_5k/phones/optional_silence.txt is OK
+
+Checking disambiguation symbols: #0 and #1
+--> data/lang_test_tgpr_5k/phones/disambig.txt has "#0" and "#1"
+--> data/lang_test_tgpr_5k/phones/disambig.txt is OK
+
+Checking topo ...
+
+Checking word_boundary.txt: silence.txt, nonsilence.txt, disambig.txt ...
+--> data/lang_test_tgpr_5k/phones/word_boundary.txt doesn't include disambiguation symbols
+--> data/lang_test_tgpr_5k/phones/word_boundary.txt is the union of nonsilence.txt and silence.txt
+--> data/lang_test_tgpr_5k/phones/word_boundary.txt is OK
+
+Checking word-level disambiguation symbols...
+--> data/lang_test_tgpr_5k/phones/wdisambig.txt exists (newer prepare_lang.sh)
+Checking word_boundary.int and disambig.int
+--> generating a 42 word sequence
+--> resulting phone sequence from L.fst corresponds to the word sequence
+--> L.fst is OK
+--> generating a 23 word sequence
+--> resulting phone sequence from L_disambig.fst corresponds to the word sequence
+--> L_disambig.fst is OK
+
+Checking data/lang_test_tgpr_5k/oov.{txt, int} ...
+--> 1 entry/entries in data/lang_test_tgpr_5k/oov.txt
+--> data/lang_test_tgpr_5k/oov.int corresponds to data/lang_test_tgpr_5k/oov.txt
+--> data/lang_test_tgpr_5k/oov.{txt, int} are OK
+
+--> data/lang_test_tgpr_5k/L.fst is olabel sorted
+--> data/lang_test_tgpr_5k/L_disambig.fst is olabel sorted
+--> data/lang_test_tgpr_5k/G.fst is ilabel sorted
+--> data/lang_test_tgpr_5k/G.fst has 170449 states
+--> utils/lang/check_g_properties.pl successfully validated data/lang_test_tgpr_5k/G.fst
+--> utils/lang/check_g_properties.pl succeeded.
+--> SUCCESS [validating lang directory data/lang_test_tgpr_5k]
+Succeeded in formatting data.
+run_init.sh Done.

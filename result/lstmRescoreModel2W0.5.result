@@ -1,0 +1,15 @@
+local/chime4_calc_wers_theano.sh /media/rezki/DATA2/exp-to-rescore/exp/nnet3/lstm_4_ivec_fmllr_ld5_lmrescore beamformit_5mics_lstmlm1500 /home/rezki/sandbox/kaldi/egs/chime4DevFE1_allChannels3/s5_6ch/exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k
+compute dt05 WER for each location
+
+-------------------
+best overall dt05 WER 5.33% (language model weight = 12)
+-------------------
+dt05_simu WER: 5.51% (Average), 4.97% (BUS), 6.92% (CAFE), 4.85% (PEDESTRIAN), 5.28% (STREET)
+-------------------
+dt05_real WER: 5.15% (Average), 6.09% (BUS), 4.81% (CAFE), 4.45% (PEDESTRIAN), 5.24% (STREET)
+-------------------
+et05_simu WER: 6.08% (Average), 4.74% (BUS), 7.32% (CAFE), 6.29% (PEDESTRIAN), 5.96% (STREET)
+-------------------
+et05_real WER: 6.42% (Average), 7.48% (BUS), 6.09% (CAFE), 5.96% (PEDESTRIAN), 6.14% (STREET)
+-------------------
+

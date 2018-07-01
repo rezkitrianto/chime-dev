@@ -1,0 +1,513 @@
+------------STAGE 1----------
+local/real_noisy_chime4_data_prep.sh /home/rezki/sandbox/dataset/CHiME3
+extract 5th channel (CH5.wav, the center bottom edge in the front of the tablet) for noisy data
+Data preparation succeeded
+local/simu_noisy_chime4_data_prep.sh /home/rezki/sandbox/dataset/CHiME3
+extract 5th channel (CH5.wav, the center bottom edge in the front of the tablet) for noisy data
+Data preparation succeeded
+------------STAGE 2----------
+steps/make_lmfb.sh --nj 8 --cmd run.pl data/tr05_real_noisy exp/make_lmfb/tr05_real_noisy lmfb
+utils/validate_data_dir.sh: Successfully validated data-directory data/tr05_real_noisy
+steps/make_lmfb.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating LMFB features for tr05_real_noisy
+steps/compute_cmvn_stats.sh data/tr05_real_noisy exp/make_lmfb/tr05_real_noisy lmfb
+Succeeded creating CMVN stats for tr05_real_noisy
+steps/make_lmfb.sh --nj 8 --cmd run.pl data/dt05_real_noisy exp/make_lmfb/dt05_real_noisy lmfb
+utils/validate_data_dir.sh: Successfully validated data-directory data/dt05_real_noisy
+steps/make_lmfb.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating LMFB features for dt05_real_noisy
+steps/compute_cmvn_stats.sh data/dt05_real_noisy exp/make_lmfb/dt05_real_noisy lmfb
+Succeeded creating CMVN stats for dt05_real_noisy
+steps/make_lmfb.sh --nj 8 --cmd run.pl data/tr05_simu_noisy exp/make_lmfb/tr05_simu_noisy lmfb
+utils/validate_data_dir.sh: Successfully validated data-directory data/tr05_simu_noisy
+steps/make_lmfb.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating LMFB features for tr05_simu_noisy
+steps/compute_cmvn_stats.sh data/tr05_simu_noisy exp/make_lmfb/tr05_simu_noisy lmfb
+Succeeded creating CMVN stats for tr05_simu_noisy
+steps/make_lmfb.sh --nj 8 --cmd run.pl data/dt05_simu_noisy exp/make_lmfb/dt05_simu_noisy lmfb
+utils/validate_data_dir.sh: Successfully validated data-directory data/dt05_simu_noisy
+steps/make_lmfb.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating LMFB features for dt05_simu_noisy
+steps/compute_cmvn_stats.sh data/dt05_simu_noisy exp/make_lmfb/dt05_simu_noisy lmfb
+Succeeded creating CMVN stats for dt05_simu_noisy
+steps/make_lmfb.sh --nj 8 --cmd run.pl data/et05_real_noisy exp/make_lmfb/et05_real_noisy lmfb
+utils/validate_data_dir.sh: Successfully validated data-directory data/et05_real_noisy
+steps/make_lmfb.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating LMFB features for et05_real_noisy
+steps/compute_cmvn_stats.sh data/et05_real_noisy exp/make_lmfb/et05_real_noisy lmfb
+Succeeded creating CMVN stats for et05_real_noisy
+steps/make_lmfb.sh --nj 8 --cmd run.pl data/et05_simu_noisy exp/make_lmfb/et05_simu_noisy lmfb
+utils/validate_data_dir.sh: Successfully validated data-directory data/et05_simu_noisy
+steps/make_lmfb.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating LMFB features for et05_simu_noisy
+steps/compute_cmvn_stats.sh data/et05_simu_noisy exp/make_lmfb/et05_simu_noisy lmfb
+Succeeded creating CMVN stats for et05_simu_noisy
+------------STAGE 3----------
+utils/combine_data.sh data/tr05_multi_noisy data/tr05_simu_noisy data/tr05_real_noisy
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh [info]: not combining utt2dur as it does not exist
+utils/combine_data.sh: combined feats.scp
+utils/combine_data.sh: combined text
+utils/combine_data.sh: combined cmvn.scp
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh [info]: not combining spk2gender as it does not exist
+fix_data_dir.sh: kept all 52428 utterances.
+fix_data_dir.sh: old files are kept in data/tr05_multi_noisy/.backup
+utils/combine_data.sh data/dt05_multi_noisy data/dt05_simu_noisy data/dt05_real_noisy
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh [info]: not combining utt2dur as it does not exist
+utils/combine_data.sh: combined feats.scp
+utils/combine_data.sh: combined text
+utils/combine_data.sh: combined cmvn.scp
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh [info]: not combining spk2gender as it does not exist
+utils/fix_data_dir.sh: file data/dt05_multi_noisy/cmvn.scp is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 3280 utterances.
+fix_data_dir.sh: old files are kept in data/dt05_multi_noisy/.backup
+utils/combine_data.sh data/et05_multi_noisy data/et05_simu_noisy data/et05_real_noisy
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh [info]: not combining utt2dur as it does not exist
+utils/combine_data.sh: combined feats.scp
+utils/combine_data.sh: combined text
+utils/combine_data.sh: combined cmvn.scp
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh [info]: not combining spk2gender as it does not exist
+utils/fix_data_dir.sh: file data/et05_multi_noisy/cmvn.scp is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 2640 utterances.
+fix_data_dir.sh: old files are kept in data/et05_multi_noisy/.backup
+------------STAGE 4----------
+steps/train_mono.sh --boost-silence 1.25 --nj 15 --cmd run.pl data/tr05_multi_noisy data/lang exp/mono0a_tr05_multi_noisy
+steps/train_mono.sh: Initializing monophone system.
+steps/train_mono.sh: Compiling training graphs
+steps/train_mono.sh: Aligning data equally (pass 0)
+steps/train_mono.sh: Pass 1
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 2
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 3
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 4
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 5
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 6
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 7
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 8
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 9
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 10
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 11
+steps/train_mono.sh: Pass 12
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 13
+steps/train_mono.sh: Pass 14
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 15
+steps/train_mono.sh: Pass 16
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 17
+steps/train_mono.sh: Pass 18
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 19
+steps/train_mono.sh: Pass 20
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 21
+steps/train_mono.sh: Pass 22
+steps/train_mono.sh: Pass 23
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 24
+steps/train_mono.sh: Pass 25
+steps/train_mono.sh: Pass 26
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 27
+steps/train_mono.sh: Pass 28
+steps/train_mono.sh: Pass 29
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 30
+steps/train_mono.sh: Pass 31
+steps/train_mono.sh: Pass 32
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 33
+steps/train_mono.sh: Pass 34
+steps/train_mono.sh: Pass 35
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 36
+steps/train_mono.sh: Pass 37
+steps/train_mono.sh: Pass 38
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 39
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang exp/mono0a_tr05_multi_noisy
+steps/diagnostic/analyze_alignments.sh: see stats in exp/mono0a_tr05_multi_noisy/log/analyze_alignments.log
+33960 warnings in exp/mono0a_tr05_multi_noisy/log/acc.*.*.log
+230913 warnings in exp/mono0a_tr05_multi_noisy/log/align.*.*.log
+exp/mono0a_tr05_multi_noisy: nj=15 align prob=-240.23 over 107.22h [retry=7.2%, fail=0.7%] states=132 gauss=974
+steps/train_mono.sh: Done training monophone system in exp/mono0a_tr05_multi_noisy
+steps/align_si.sh --boost-silence 1.25 --nj 15 --cmd run.pl data/tr05_multi_noisy data/lang exp/mono0a_tr05_multi_noisy exp/mono0a_ali_tr05_multi_noisy
+steps/align_si.sh: feature type is delta
+steps/align_si.sh: aligning data in data/tr05_multi_noisy using model from exp/mono0a_tr05_multi_noisy, putting alignments in exp/mono0a_ali_tr05_multi_noisy
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang exp/mono0a_ali_tr05_multi_noisy
+steps/diagnostic/analyze_alignments.sh: see stats in exp/mono0a_ali_tr05_multi_noisy/log/analyze_alignments.log
+steps/align_si.sh: done aligning data.
+steps/train_deltas.sh --boost-silence 1.25 --cmd run.pl 2000 10000 data/tr05_multi_noisy data/lang exp/mono0a_ali_tr05_multi_noisy exp/tri1_tr05_multi_noisy
+steps/train_deltas.sh: accumulating tree stats
+steps/train_deltas.sh: getting questions for tree-building, via clustering
+steps/train_deltas.sh: building the tree
+steps/train_deltas.sh: converting alignments from exp/mono0a_ali_tr05_multi_noisy to use current tree
+steps/train_deltas.sh: compiling graphs of transcripts
+steps/train_deltas.sh: training pass 1
+steps/train_deltas.sh: training pass 2
+steps/train_deltas.sh: training pass 3
+steps/train_deltas.sh: training pass 4
+steps/train_deltas.sh: training pass 5
+steps/train_deltas.sh: training pass 6
+steps/train_deltas.sh: training pass 7
+steps/train_deltas.sh: training pass 8
+steps/train_deltas.sh: training pass 9
+steps/train_deltas.sh: training pass 10
+steps/train_deltas.sh: aligning data
+steps/train_deltas.sh: training pass 11
+steps/train_deltas.sh: training pass 12
+steps/train_deltas.sh: training pass 13
+steps/train_deltas.sh: training pass 14
+steps/train_deltas.sh: training pass 15
+steps/train_deltas.sh: training pass 16
+steps/train_deltas.sh: training pass 17
+steps/train_deltas.sh: training pass 18
+steps/train_deltas.sh: training pass 19
+steps/train_deltas.sh: training pass 20
+steps/train_deltas.sh: aligning data
+steps/train_deltas.sh: training pass 21
+steps/train_deltas.sh: training pass 22
+steps/train_deltas.sh: training pass 23
+steps/train_deltas.sh: training pass 24
+steps/train_deltas.sh: training pass 25
+steps/train_deltas.sh: training pass 26
+steps/train_deltas.sh: training pass 27
+steps/train_deltas.sh: training pass 28
+steps/train_deltas.sh: training pass 29
+steps/train_deltas.sh: training pass 30
+steps/train_deltas.sh: aligning data
+steps/train_deltas.sh: training pass 31
+steps/train_deltas.sh: training pass 32
+steps/train_deltas.sh: training pass 33
+steps/train_deltas.sh: training pass 34
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang exp/tri1_tr05_multi_noisy
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri1_tr05_multi_noisy/log/analyze_alignments.log
+14398 warnings in exp/tri1_tr05_multi_noisy/log/align.*.*.log
+1 warnings in exp/tri1_tr05_multi_noisy/log/update.*.log
+16506 warnings in exp/tri1_tr05_multi_noisy/log/acc.*.*.log
+1 warnings in exp/tri1_tr05_multi_noisy/log/build_tree.log
+exp/tri1_tr05_multi_noisy: nj=15 align prob=-238.24 over 107.03h [retry=8.0%, fail=0.9%] states=1573 gauss=10018 tree-impr=3.51
+steps/train_deltas.sh: Done training system with delta+delta-delta features in exp/tri1_tr05_multi_noisy
+steps/align_si.sh --nj 15 --cmd run.pl data/tr05_multi_noisy data/lang exp/tri1_tr05_multi_noisy exp/tri1_ali_tr05_multi_noisy
+steps/align_si.sh: feature type is delta
+steps/align_si.sh: aligning data in data/tr05_multi_noisy using model from exp/tri1_tr05_multi_noisy, putting alignments in exp/tri1_ali_tr05_multi_noisy
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang exp/tri1_ali_tr05_multi_noisy
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri1_ali_tr05_multi_noisy/log/analyze_alignments.log
+steps/align_si.sh: done aligning data.
+steps/train_lda_mllt.sh --cmd run.pl --splice-opts --left-context=3 --right-context=3 2500 15000 data/tr05_multi_noisy data/lang exp/tri1_ali_tr05_multi_noisy exp/tri2b_tr05_multi_noisy
+Accumulating LDA statistics.
+Accumulating tree stats
+Getting questions for tree clustering.
+Building the tree
+steps/train_lda_mllt.sh: Initializing the model
+Converting alignments from exp/tri1_ali_tr05_multi_noisy to use current tree
+Compiling graphs of transcripts
+Training pass 1
+Training pass 2
+Estimating MLLT
+Training pass 3
+Training pass 4
+Estimating MLLT
+Training pass 5
+Training pass 6
+Estimating MLLT
+Training pass 7
+Training pass 8
+Training pass 9
+Training pass 10
+Aligning data
+Training pass 11
+Training pass 12
+Estimating MLLT
+Training pass 13
+Training pass 14
+Training pass 15
+Training pass 16
+Training pass 17
+Training pass 18
+Training pass 19
+Training pass 20
+Aligning data
+Training pass 21
+Training pass 22
+Training pass 23
+Training pass 24
+Training pass 25
+Training pass 26
+Training pass 27
+Training pass 28
+Training pass 29
+Training pass 30
+Aligning data
+Training pass 31
+Training pass 32
+Training pass 33
+Training pass 34
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang exp/tri2b_tr05_multi_noisy
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri2b_tr05_multi_noisy/log/analyze_alignments.log
+1 warnings in exp/tri2b_tr05_multi_noisy/log/update.*.log
+7676 warnings in exp/tri2b_tr05_multi_noisy/log/align.*.*.log
+1 warnings in exp/tri2b_tr05_multi_noisy/log/build_tree.log
+447 warnings in exp/tri2b_tr05_multi_noisy/log/lda_acc.*.log
+12258 warnings in exp/tri2b_tr05_multi_noisy/log/acc.*.*.log
+exp/tri2b_tr05_multi_noisy: nj=15 align prob=-50.74 over 107.53h [retry=3.4%, fail=0.5%] states=2009 gauss=15039 tree-impr=3.06 lda-sum=12.70 mllt:impr,logdet=0.72,1.04
+Done training system with LDA+MLLT features in exp/tri2b_tr05_multi_noisy
+steps/align_si.sh --nj 15 --cmd run.pl --use-graphs true data/tr05_multi_noisy data/lang exp/tri2b_tr05_multi_noisy exp/tri2b_ali_tr05_multi_noisy
+steps/align_si.sh: feature type is lda
+steps/align_si.sh: aligning data in data/tr05_multi_noisy using model from exp/tri2b_tr05_multi_noisy, putting alignments in exp/tri2b_ali_tr05_multi_noisy
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang exp/tri2b_ali_tr05_multi_noisy
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri2b_ali_tr05_multi_noisy/log/analyze_alignments.log
+steps/align_si.sh: done aligning data.
+steps/train_sat.sh --cmd run.pl 2500 15000 data/tr05_multi_noisy data/lang exp/tri2b_ali_tr05_multi_noisy exp/tri3b_tr05_multi_noisy
+steps/train_sat.sh: feature type is lda
+steps/train_sat.sh: obtaining initial fMLLR transforms since not present in exp/tri2b_ali_tr05_multi_noisy
+steps/train_sat.sh: Accumulating tree stats
+steps/train_sat.sh: Getting questions for tree clustering.
+steps/train_sat.sh: Building the tree
+steps/train_sat.sh: Initializing the model
+steps/train_sat.sh: Converting alignments from exp/tri2b_ali_tr05_multi_noisy to use current tree
+steps/train_sat.sh: Compiling graphs of transcripts
+Pass 1
+Pass 2
+Estimating fMLLR transforms
+Pass 3
+Pass 4
+Estimating fMLLR transforms
+Pass 5
+Pass 6
+Estimating fMLLR transforms
+Pass 7
+Pass 8
+Pass 9
+Pass 10
+Aligning data
+Pass 11
+Pass 12
+Estimating fMLLR transforms
+Pass 13
+Pass 14
+Pass 15
+Pass 16
+Pass 17
+Pass 18
+Pass 19
+Pass 20
+Aligning data
+Pass 21
+Pass 22
+Pass 23
+Pass 24
+Pass 25
+Pass 26
+Pass 27
+Pass 28
+Pass 29
+Pass 30
+Aligning data
+Pass 31
+Pass 32
+Pass 33
+Pass 34
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang exp/tri3b_tr05_multi_noisy
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri3b_tr05_multi_noisy/log/analyze_alignments.log
+1399 warnings in exp/tri3b_tr05_multi_noisy/log/fmllr.*.*.log
+1 warnings in exp/tri3b_tr05_multi_noisy/log/build_tree.log
+9912 warnings in exp/tri3b_tr05_multi_noisy/log/acc.*.*.log
+6567 warnings in exp/tri3b_tr05_multi_noisy/log/align.*.*.log
+steps/train_sat.sh: Likelihood evolution:
+-51.4198 -51.1927 -51.1142 -51.0761 -50.8698 -50.5462 -50.3144 -50.1709 -50.0787 -49.7115 -49.608 -49.4948 -49.4293 -49.3706 -49.3169 -49.2708 -49.2321 -49.1983 -49.166 -49.0615 -49.0082 -48.9766 -48.9487 -48.9221 -48.8965 -48.8717 -48.8484 -48.8269 -48.8065 -48.7492 -48.7161 -48.7 -48.6891 -48.6812 
+exp/tri3b_tr05_multi_noisy: nj=15 align prob=-50.74 over 107.55h [retry=2.8%, fail=0.5%] states=2039 gauss=15018 fmllr-impr=1.43 over 82.42h tree-impr=4.36
+steps/train_sat.sh: done training SAT system in exp/tri3b_tr05_multi_noisy
+tree-info exp/tri3b_tr05_multi_noisy/tree 
+tree-info exp/tri3b_tr05_multi_noisy/tree 
+fstdeterminizestar --use-log=true 
+fstpushspecial 
+fsttablecompose data/lang_test_tgpr_5k/L_disambig.fst data/lang_test_tgpr_5k/G.fst 
+fstminimizeencoded 
+fstisstochastic data/lang_test_tgpr_5k/tmp/LG.fst 
+-0.113723 -0.114621
+[info]: LG not stochastic.
+fstcomposecontext --context-size=3 --central-position=1 --read-disambig-syms=data/lang_test_tgpr_5k/phones/disambig.int --write-disambig-syms=data/lang_test_tgpr_5k/tmp/disambig_ilabels_3_1.int data/lang_test_tgpr_5k/tmp/ilabels_3_1 
+fstisstochastic data/lang_test_tgpr_5k/tmp/CLG_3_1.fst 
+0 -0.114621
+[info]: CLG not stochastic.
+make-h-transducer --disambig-syms-out=exp/tri3b_tr05_multi_noisy/graph_tgpr_5k/disambig_tid.int --transition-scale=1.0 data/lang_test_tgpr_5k/tmp/ilabels_3_1 exp/tri3b_tr05_multi_noisy/tree exp/tri3b_tr05_multi_noisy/final.mdl 
+fsttablecompose exp/tri3b_tr05_multi_noisy/graph_tgpr_5k/Ha.fst data/lang_test_tgpr_5k/tmp/CLG_3_1.fst 
+fstminimizeencoded 
+fstdeterminizestar --use-log=true 
+fstrmsymbols exp/tri3b_tr05_multi_noisy/graph_tgpr_5k/disambig_tid.int 
+fstrmepslocal 
+fstisstochastic exp/tri3b_tr05_multi_noisy/graph_tgpr_5k/HCLGa.fst 
+0.000487823 -0.314076
+HCLGa is not stochastic
+add-self-loops --self-loop-scale=0.1 --reorder=true exp/tri3b_tr05_multi_noisy/final.mdl 
+------------STAGE 5----------
+local/real_enhan_chime4_data_prep.sh beamformit_5mics /home/rezki/sandbox/kaldi/egs/chime4DevFE1_allChannels3/s5_6ch/enhan/beamformit_5mics
+Data preparation succeeded
+local/simu_enhan_chime4_data_prep.sh beamformit_5mics /home/rezki/sandbox/kaldi/egs/chime4DevFE1_allChannels3/s5_6ch/enhan/beamformit_5mics
+Data preparation succeeded
+------------STAGE 6----------
+steps/make_lmfb.sh --nj 8 --cmd run.pl data/dt05_real_beamformit_5mics exp/make_lmfb/dt05_real_beamformit_5mics lmfb/beamformit_5mics
+utils/validate_data_dir.sh: Successfully validated data-directory data/dt05_real_beamformit_5mics
+steps/make_lmfb.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating LMFB features for dt05_real_beamformit_5mics
+steps/compute_cmvn_stats.sh data/dt05_real_beamformit_5mics exp/make_lmfb/dt05_real_beamformit_5mics lmfb/beamformit_5mics
+Succeeded creating CMVN stats for dt05_real_beamformit_5mics
+steps/make_lmfb.sh --nj 8 --cmd run.pl data/dt05_simu_beamformit_5mics exp/make_lmfb/dt05_simu_beamformit_5mics lmfb/beamformit_5mics
+utils/validate_data_dir.sh: Successfully validated data-directory data/dt05_simu_beamformit_5mics
+steps/make_lmfb.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating LMFB features for dt05_simu_beamformit_5mics
+steps/compute_cmvn_stats.sh data/dt05_simu_beamformit_5mics exp/make_lmfb/dt05_simu_beamformit_5mics lmfb/beamformit_5mics
+Succeeded creating CMVN stats for dt05_simu_beamformit_5mics
+steps/make_lmfb.sh --nj 8 --cmd run.pl data/et05_real_beamformit_5mics exp/make_lmfb/et05_real_beamformit_5mics lmfb/beamformit_5mics
+utils/validate_data_dir.sh: Successfully validated data-directory data/et05_real_beamformit_5mics
+steps/make_lmfb.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating LMFB features for et05_real_beamformit_5mics
+steps/compute_cmvn_stats.sh data/et05_real_beamformit_5mics exp/make_lmfb/et05_real_beamformit_5mics lmfb/beamformit_5mics
+Succeeded creating CMVN stats for et05_real_beamformit_5mics
+steps/make_lmfb.sh --nj 8 --cmd run.pl data/et05_simu_beamformit_5mics exp/make_lmfb/et05_simu_beamformit_5mics lmfb/beamformit_5mics
+utils/validate_data_dir.sh: Successfully validated data-directory data/et05_simu_beamformit_5mics
+steps/make_lmfb.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating LMFB features for et05_simu_beamformit_5mics
+steps/compute_cmvn_stats.sh data/et05_simu_beamformit_5mics exp/make_lmfb/et05_simu_beamformit_5mics lmfb/beamformit_5mics
+Succeeded creating CMVN stats for et05_simu_beamformit_5mics
+------------STAGE 7----------
+utils/combine_data.sh data/dt05_multi_beamformit_5mics data/dt05_simu_beamformit_5mics data/dt05_real_beamformit_5mics
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh [info]: not combining utt2dur as it does not exist
+utils/combine_data.sh: combined feats.scp
+utils/combine_data.sh: combined text
+utils/combine_data.sh: combined cmvn.scp
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh [info]: not combining spk2gender as it does not exist
+utils/fix_data_dir.sh: file data/dt05_multi_beamformit_5mics/cmvn.scp is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 3280 utterances.
+fix_data_dir.sh: old files are kept in data/dt05_multi_beamformit_5mics/.backup
+utils/combine_data.sh data/et05_multi_beamformit_5mics data/et05_simu_beamformit_5mics data/et05_real_beamformit_5mics
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh [info]: not combining utt2dur as it does not exist
+utils/combine_data.sh: combined feats.scp
+utils/combine_data.sh: combined text
+utils/combine_data.sh: combined cmvn.scp
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh [info]: not combining spk2gender as it does not exist
+utils/fix_data_dir.sh: file data/et05_multi_beamformit_5mics/cmvn.scp is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 2640 utterances.
+fix_data_dir.sh: old files are kept in data/et05_multi_beamformit_5mics/.backup
+------------STAGE 8----------
+steps/decode_fmllr.sh --nj 4 --num-threads 3 --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k data/dt05_real_beamformit_5mics exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_real_beamformit_5mics
+steps/decode_fmllr.sh --nj 4 --num-threads 3 --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k data/dt05_simu_beamformit_5mics exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics
+steps/decode_fmllr.sh --nj 4 --num-threads 3 --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k data/et05_real_beamformit_5mics exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_real_beamformit_5mics
+steps/decode_fmllr.sh --nj 4 --num-threads 3 --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k data/et05_simu_beamformit_5mics exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_simu_beamformit_5mics
+steps/decode.sh --scoring-opts  --num-threads 3 --skip-scoring false --acwt 0.083333 --nj 4 --cmd run.pl --beam 10.0 --model exp/tri3b_tr05_multi_noisy/final.alimdl --max-active 2000 exp/tri3b_tr05_multi_noisy/graph_tgpr_5k data/dt05_simu_beamformit_5mics exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics.si
+steps/decode.sh --scoring-opts  --num-threads 3 --skip-scoring false --acwt 0.083333 --nj 4 --cmd run.pl --beam 10.0 --model exp/tri3b_tr05_multi_noisy/final.alimdl --max-active 2000 exp/tri3b_tr05_multi_noisy/graph_tgpr_5k data/dt05_real_beamformit_5mics exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_real_beamformit_5mics.si
+steps/decode.sh --scoring-opts  --num-threads 3 --skip-scoring false --acwt 0.083333 --nj 4 --cmd run.pl --beam 10.0 --model exp/tri3b_tr05_multi_noisy/final.alimdl --max-active 2000 exp/tri3b_tr05_multi_noisy/graph_tgpr_5k data/et05_simu_beamformit_5mics exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_simu_beamformit_5mics.si
+steps/decode.sh --scoring-opts  --num-threads 3 --skip-scoring false --acwt 0.083333 --nj 4 --cmd run.pl --beam 10.0 --model exp/tri3b_tr05_multi_noisy/final.alimdl --max-active 2000 exp/tri3b_tr05_multi_noisy/graph_tgpr_5k data/et05_real_beamformit_5mics exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_real_beamformit_5mics.si
+decode.sh: feature type is lda
+decode.sh: feature type is lda
+decode.sh: feature type is lda
+decode.sh: feature type is lda
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_real_beamformit_5mics.si
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_real_beamformit_5mics.si/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,3,16) and mean=6.8
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_real_beamformit_5mics.si/log/analyze_lattice_depth_stats.log
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_simu_beamformit_5mics.si
+steps/decode_fmllr.sh: feature type is lda
+steps/decode_fmllr.sh: getting first-pass fMLLR transforms.
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_simu_beamformit_5mics.si/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,3,16) and mean=6.6
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_simu_beamformit_5mics.si/log/analyze_lattice_depth_stats.log
+steps/decode_fmllr.sh: feature type is lda
+steps/decode_fmllr.sh: getting first-pass fMLLR transforms.
+steps/decode_fmllr.sh: doing main lattice generation phase
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics.si
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics.si/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,2,13) and mean=5.5
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics.si/log/analyze_lattice_depth_stats.log
+steps/decode_fmllr.sh: doing main lattice generation phase
+steps/decode_fmllr.sh: feature type is lda
+steps/decode_fmllr.sh: getting first-pass fMLLR transforms.
+steps/decode_fmllr.sh: doing main lattice generation phase
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_real_beamformit_5mics.si
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_real_beamformit_5mics.si/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,2,12) and mean=5.5
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_real_beamformit_5mics.si/log/analyze_lattice_depth_stats.log
+steps/decode_fmllr.sh: feature type is lda
+steps/decode_fmllr.sh: getting first-pass fMLLR transforms.
+steps/decode_fmllr.sh: doing main lattice generation phase
+steps/decode_fmllr.sh: estimating fMLLR transforms a second time.
+steps/decode_fmllr.sh: doing a final pass of acoustic rescoring.
+steps/decode_fmllr.sh: estimating fMLLR transforms a second time.
+steps/decode_fmllr.sh: doing a final pass of acoustic rescoring.
+steps/decode_fmllr.sh: estimating fMLLR transforms a second time.
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_real_beamformit_5mics
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_real_beamformit_5mics/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,2,17) and mean=7.5
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_real_beamformit_5mics/log/analyze_lattice_depth_stats.log
+steps/decode_fmllr.sh: doing a final pass of acoustic rescoring.
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_simu_beamformit_5mics
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_simu_beamformit_5mics/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,2,15) and mean=6.8
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_et05_simu_beamformit_5mics/log/analyze_lattice_depth_stats.log
+steps/decode_fmllr.sh: estimating fMLLR transforms a second time.
+steps/decode_fmllr.sh: doing a final pass of acoustic rescoring.
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,2,13) and mean=5.8
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_simu_beamformit_5mics/log/analyze_lattice_depth_stats.log
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri3b_tr05_multi_noisy/graph_tgpr_5k exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_real_beamformit_5mics
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_real_beamformit_5mics/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,2,11) and mean=5.2
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3b_tr05_multi_noisy/decode_tgpr_5k_dt05_real_beamformit_5mics/log/analyze_lattice_depth_stats.log
+------------STAGE 9----------
+local/chime4_calc_wers.sh exp/tri3b_tr05_multi_noisy beamformit_5mics exp/tri3b_tr05_multi_noisy/graph_tgpr_5k
+compute dt05 WER for each location
+
+-------------------
+best overall dt05 WER 11.27% (language model weight = 11)
+-------------------
+dt05_simu WER: 11.63% (Average), 9.81% (BUS), 14.54% (CAFE), 10.60% (PEDESTRIAN), 11.58% (STREET)
+-------------------
+dt05_real WER: 10.91% (Average), 11.24% (BUS), 11.11% (CAFE), 9.72% (PEDESTRIAN), 11.56% (STREET)
+-------------------
+et05_simu WER: 13.31% (Average), 11.30% (BUS), 14.36% (CAFE), 14.08% (PEDESTRIAN), 13.50% (STREET)
+-------------------
+et05_real WER: 14.30% (Average), 16.30% (BUS), 15.04% (CAFE), 13.30% (PEDESTRIAN), 12.55% (STREET)
+-------------------
+
+run_gmm.sh Done.

@@ -1,0 +1,4 @@
+run-4-test.sh 
+local/kws/run_kws_stt_task.sh --cer 0 --max-states 150000 --skip-scoring false --extra-kws true --wip 0.5 --cmd run.pl --skip-kws false --skip-stt false data-fmllr-tri3b/et05_real_beamformit_5mics data/lang exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_real_beamformit_5mics_it4
+local/kws/lattice_to_ctm.sh --cmd run.pl --word-ins-penalty 0.5 --min-lmwt 8 --max-lmwt 12 data-fmllr-tri3b/et05_real_beamformit_5mics data/lang exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_et05_real_beamformit_5mics_it4
+local/kws/lattice_to_ctm.sh: expecting file data-fmllr-tri3b/et05_real_beamformit_5mics/segments to exist

@@ -1,0 +1,8 @@
+------------STAGE 0----------
+GMM Done.
+------------STAGE 1----------
+------------STAGE 2----------
+steps/nnet/decode.sh --nj 1 --num-threads 1 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/1.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data/onlineTest exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_onlineTest_it1
+steps/nnet/decode.sh --nj 1 --num-threads 1 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/2.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data/onlineTest exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_onlineTest_it2
+steps/nnet/decode.sh --nj 1 --num-threads 1 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/3.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data/onlineTest exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_onlineTest_it3
+steps/nnet/decode.sh --nj 1 --num-threads 1 --cmd run.pl --config conf/decode_dnn.config --nnet exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/4.nnet --acwt 0.1 exp/tri4a_dnn_tr05_multi_noisy/graph_tgpr_5k data/onlineTest exp/tri4a_dnn_tr05_multi_noisy_smbr_i1lats/decode_tgpr_5k_onlineTest_it4
